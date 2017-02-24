@@ -82,6 +82,8 @@ end''')
 			shutit.logout()
 			shutit.logout()
 		for machine in sorted(machines.keys()):
+			shutit.login(command='vagrant ssh ' + machine)
+			shutit.login(command='sudo su -',password='vagrant')
 			root_password = 'root'
 			shutit.install('net-tools') # netstat needed
 			if not shutit.command_available('host'):
